@@ -1,0 +1,1 @@
+export const SUBMITTED_FORM = 'SUBMITTED_FORM';
