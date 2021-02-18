@@ -21,6 +21,7 @@ function Main(props: Props) {
   const [paras, setPara] = useState<Para[]>([]);
   const [topics, setTopics] = useState<string[]>([]);
   const [options, setOption] = useState([{ id: '', number: '' }]);
+  const [textarea, setTextarea] = useState('');
 
   const fetchMyAPI = async function () {
     try {
@@ -51,14 +52,14 @@ function Main(props: Props) {
       let getTopic = document.getElementsByClassName('topic')[getValue];
       let getName = document.getElementsByClassName('name')[getValue];
       let question = document.getElementsByClassName('question')[getValue];
-      let message = e.target[1].innerHTML;
+
       let getId = getTopic.innerHTML.split(' ')[1];
       let data = {
         id: getId,
         topic: getTopic.innerHTML,
         name: getName.innerHTML,
         question: question.innerHTML,
-        message: message,
+        message: textarea,
       };
       let getForm = document.getElementsByClassName('form')[getValue];
       getForm.classList.add('hidden');
@@ -151,6 +152,9 @@ function Main(props: Props) {
                               ? paras?.[+optionFind.number]?.textFirstPerson
                               : ''
                           }
+                          onChange={(e) => {
+                            setTextarea(e.target.value);
+                          }}
                           className='text-black w-11/12 h-40 p-2'
                         ></textarea>
                         <div className=''>
