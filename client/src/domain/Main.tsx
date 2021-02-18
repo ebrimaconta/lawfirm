@@ -6,7 +6,7 @@ interface Para {
   textFirstPerson: string;
   [key: number]: string;
   summary: string;
-  authorFirstPerson: any;
+  topics: any;
 }
 interface IMain {
   submitted: any;
@@ -153,7 +153,16 @@ function Main(props: Props) {
                           }
                           className='text-black w-11/12 h-40 p-2'
                         ></textarea>
-
+                        <div className=''>
+                          Topic:{' '}
+                          {topic.id === optionFind?.id && optionFind
+                            ? paras?.[+optionFind.number]?.topics.map(
+                                (topic: any) => {
+                                  return `${topic} `;
+                                }
+                              )
+                            : ''}
+                        </div>
                         <input type='hidden' value={index}></input>
                       </div>
                       <div className='flex justify-center'>
