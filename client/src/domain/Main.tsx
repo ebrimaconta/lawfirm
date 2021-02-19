@@ -70,7 +70,7 @@ function Main(props: Props) {
             })
           ) : (
             <div className='bg-blue-700 text-white flex flex-col justify-center p-2'>
-              There no submits
+              Currently there are no submits
             </div>
           )}
         </div>
